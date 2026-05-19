@@ -21,6 +21,54 @@
 
 ---
 
+## Ekip ve görev dağılımı (BTK Hackathon 2026)
+
+Proje, **modül bazlı sorumluluk** ile geliştirilmiştir. Git geçmişindeki commitler **Polat Sakarya** adına kayıtlıdır; mimari katmanlar aşağıdaki gibidir.
+
+### Takım
+
+| Üye | Rol | İletişim |
+|-----|-----|----------|
+| **Polat Sakarya** | Proje lideri · tam yığın geliştirme (backend, AI entegrasyonu, UI, test, teslim) | psakarya17@gmail.com |
+
+### Görev dağılımı (kim ne yaptı?)
+
+| Alan | Sorumluluk | Başlıca dosyalar / çıktılar |
+|------|------------|-----------------------------|
+| **1. Mimari & LangGraph** | Dört ajanın tasarımı, state makinesi, koşullu yönlendirme (clarification döngüsü) | `app/graph/workflow.py`, `app/core/state.py`, `app/agents/*` |
+| **2. Veri girişi & Excel** | Yükleme, 50K satır, satır/sütun preflight, kanonik dönüşüm (heuristic + Gemini) | `upload_loader.py`, `upload_preflight.py`, `ai_converter.py` |
+| **3. Denetim motoru** | Python mevzuat kuralları, ceza matrisi, makro bütünlük, LLM anomali (bounded) | `analyzer_agent.py`, `penalty_codes.py` |
+| **4. Zero Trust kanıt** | GÇB/PDF doğrulama, proof ledger, envanter güveni, clarification soruları | `proof_ledger.py`, `document_verification.py`, `clarification_agent.py` |
+| **5. Skor & rapor** | 0–100 skor, finansman kilidi, iyileştirme planı (`remediation_plan`) | `decision_agent.py`, `remediation_plan.py` |
+| **6. Streamlit UI** | Landing, demo giriş, analiz merkezi, clarification/done fazları, pitch ekranları | `main.py` |
+| **7. Test & kalite** | E2E doğrulama, UI yolculuğu, güvenlik saldırı senaryoları, büyük Excel + skor testleri | `tests/*`, `pytest.ini` |
+| **8. Dokümantasyon & teslim** | Teknik rehberler, README, `.env.example`, GitHub, public güvenlik kontrolleri | `docs/`, `scripts/verify_public_ready.sh` |
+
+```mermaid
+flowchart LR
+  subgraph veri [Veri katmanı]
+    U[upload_loader + preflight]
+    C[ai_converter]
+  end
+  subgraph ajan [LangGraph]
+    Col[Collector]
+    Ana[Analyzer]
+    Cla[Clarification]
+    Dec[Decision]
+  end
+  subgraph ui [Arayüz]
+    M[main.py Streamlit]
+  end
+  U --> Col
+  C --> Col
+  Col --> Ana --> Cla --> Dec
+  M --> ajan
+```
+
+> Takımda birden fazla geliştirici varsa bu tabloya isim sütunu ekleyerek güncelleyebilirsiniz; repodaki mevcut yapı tek committer ile uyumludur.
+
+---
+
 ## Mimari
 
 ```mermaid
