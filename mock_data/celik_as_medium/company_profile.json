@@ -1,0 +1,12 @@
+{
+  "company_id": "celik_as_medium",
+  "company_name": "Çelik A.Ş. — Varyant",
+  "tax_number": "1234567890",
+  "tax_office": "Kadıköy",
+  "sector": "Metal İmalat",
+  "analysis_period": { "start": "2025-01-01", "end": "2025-09-30" },
+  "refund_type_hint": "tevkifat",
+  "has_ymm_contract": false,
+  "has_previous_refund": false,
+  "estimated_refund_amount": 185000
+}

@@ -1,0 +1,122 @@
+{
+  "company_profile": {
+    "company_id": "scenario_green",
+    "company_name": "Yeşil Finans Teknoloji A.Ş.",
+    "tax_number": "1000000001",
+    "tax_office": "Levent",
+    "sector": "Yazılım",
+    "analysis_period": {
+      "start": "2025-01-01",
+      "end": "2025-09-30"
+    },
+    "refund_type_hint": "ihracat",
+    "has_ymm_contract": true,
+    "has_previous_refund": true,
+    "estimated_refund_amount": 220000
+  },
+  "invoices": [
+    {
+      "id": "GRN-INV-001",
+      "type": "satis",
+      "date": "2025-03-10",
+      "amount": 120000,
+      "kdv_rate": 20,
+      "kdv_amount": 24000,
+      "supplier_id": "GRN-SUP-001",
+      "is_export": true,
+      "has_customs_declaration": true,
+      "is_tevkifat": false,
+      "has_tevkifat_declaration": true,
+      "period": "2025-Q1",
+      "currency": "USD"
+    },
+    {
+      "id": "GRN-INV-002",
+      "type": "satis",
+      "date": "2025-06-12",
+      "amount": 98000,
+      "kdv_rate": 20,
+      "kdv_amount": 19600,
+      "supplier_id": "GRN-SUP-002",
+      "is_export": true,
+      "has_customs_declaration": true,
+      "is_tevkifat": false,
+      "has_tevkifat_declaration": true,
+      "period": "2025-Q2",
+      "currency": "EUR"
+    },
+    {
+      "id": "GRN-INV-003",
+      "type": "alis",
+      "date": "2025-08-20",
+      "amount": 42000,
+      "kdv_rate": 20,
+      "kdv_amount": 8400,
+      "supplier_id": "GRN-SUP-003",
+      "is_export": false,
+      "has_customs_declaration": true,
+      "is_tevkifat": false,
+      "has_tevkifat_declaration": true,
+      "period": "2025-Q3",
+      "currency": "TRY"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "GRN-SUP-001",
+      "name": "Global Export Partners Ltd.",
+      "tax_number": "2000000001",
+      "risk_level": "düşük",
+      "is_active": true,
+      "has_filed_kdv_2025_q1": true,
+      "has_filed_kdv_2025_q2": true,
+      "has_filed_kdv_2025_q3": true,
+      "risk_note": ""
+    },
+    {
+      "id": "GRN-SUP-002",
+      "name": "Nordic Trade Solutions A.Ş.",
+      "tax_number": "2000000002",
+      "risk_level": "düşük",
+      "is_active": true,
+      "has_filed_kdv_2025_q1": true,
+      "has_filed_kdv_2025_q2": true,
+      "has_filed_kdv_2025_q3": true,
+      "risk_note": ""
+    },
+    {
+      "id": "GRN-SUP-003",
+      "name": "Anadolu Tech Supplies Ltd.",
+      "tax_number": "2000000003",
+      "risk_level": "düşük",
+      "is_active": true,
+      "has_filed_kdv_2025_q1": true,
+      "has_filed_kdv_2025_q2": true,
+      "has_filed_kdv_2025_q3": true,
+      "risk_note": ""
+    }
+  ],
+  "documents": [
+    {
+      "id": "GRN-DOC-001",
+      "type": "gumruk_beyannamesi",
+      "status": "mevcut",
+      "required": true,
+      "note": "Tüm ihracat faturaları ile eşleşti"
+    },
+    {
+      "id": "GRN-DOC-002",
+      "type": "2no_kdv_beyannamesi",
+      "status": "mevcut",
+      "required": true,
+      "note": "Arşiv tam"
+    },
+    {
+      "id": "GRN-DOC-003",
+      "type": "yuklenilen_kdv_listesi",
+      "status": "mevcut",
+      "required": true,
+      "note": ""
+    }
+  ]
+}

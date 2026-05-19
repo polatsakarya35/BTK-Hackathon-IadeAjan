@@ -1,0 +1,20 @@
+{
+  "scenarios": [
+    {
+      "id": "celik_as_high",
+      "label": "Senaryo A — Yüksek Skor",
+      "description": "İhracat iadesi, 1 riskli tedarikçi, 1 eksik belge",
+      "expected_score": 88,
+      "finance_eligible": true,
+      "color": "green"
+    },
+    {
+      "id": "celik_as_medium",
+      "label": "Senaryo B — Orta Skor",
+      "description": "Tevkifat iadesi, 3 riskli tedarikçi, 2 eksik belge",
+      "expected_score": 62,
+      "finance_eligible": false,
+      "color": "orange"
+    }
+  ]
+}

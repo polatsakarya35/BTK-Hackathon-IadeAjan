@@ -1,0 +1,16 @@
+{
+  "suppliers": [
+    { "id": "SUP-M001", "name": "Tekirdağ İnşaat Malz. Ltd.", "tax_number": "1111222233", "risk_level": "yüksek", "is_active": true,  "has_filed_kdv_2025_q1": true,  "has_filed_kdv_2025_q2": false, "has_filed_kdv_2025_q3": false, "risk_note": "Q2 ve Q3 beyanname yok" },
+    { "id": "SUP-M002", "name": "Ankara Yapı Sistemleri A.Ş.", "tax_number": "2222333344", "risk_level": "yüksek", "is_active": true,  "has_filed_kdv_2025_q1": false, "has_filed_kdv_2025_q2": false, "has_filed_kdv_2025_q3": true,  "risk_note": "Q1 ve Q2 beyanname yok" },
+    { "id": "SUP-M003", "name": "Konya Beton ve Yapı Koop.", "tax_number": "3333444455", "risk_level": "yüksek", "is_active": true,  "has_filed_kdv_2025_q1": true,  "has_filed_kdv_2025_q2": true,  "has_filed_kdv_2025_q3": false, "risk_note": "Q3 beyanname yok" },
+    { "id": "SUP-M004", "name": "Samsun Temin ve Loj. Ltd.", "tax_number": "4444555566", "risk_level": "düşük", "is_active": true,  "has_filed_kdv_2025_q1": true,  "has_filed_kdv_2025_q2": true,  "has_filed_kdv_2025_q3": true,  "risk_note": "" },
+    { "id": "SUP-M005", "name": "Mersin Endüstri Hiz. A.Ş.", "tax_number": "5555666677", "risk_level": "düşük", "is_active": true,  "has_filed_kdv_2025_q1": true,  "has_filed_kdv_2025_q2": true,  "has_filed_kdv_2025_q3": true,  "risk_note": "" },
+    { "id": "SUP-M006", "name": "Gaziantep Malzeme San. Ltd.", "tax_number": "6666777788", "risk_level": "düşük", "is_active": true,  "has_filed_kdv_2025_q1": true,  "has_filed_kdv_2025_q2": true,  "has_filed_kdv_2025_q3": true,  "risk_note": "" },
+    { "id": "SUP-M007", "name": "Kayseri Teknik Donanım Koop.", "tax_number": "7777888899", "risk_level": "düşük", "is_active": true,  "has_filed_kdv_2025_q1": true,  "has_filed_kdv_2025_q2": true,  "has_filed_kdv_2025_q3": true,  "risk_note": "" },
+    { "id": "SUP-M008", "name": "Denizli Tekstil Nak. Ltd.", "tax_number": "8888999900", "risk_level": "düşük", "is_active": true,  "has_filed_kdv_2025_q1": true,  "has_filed_kdv_2025_q2": true,  "has_filed_kdv_2025_q3": true,  "risk_note": "" },
+    { "id": "SUP-M009", "name": "Trabzon Hammadde A.Ş.", "tax_number": "9999000011", "risk_level": "düşük", "is_active": true,  "has_filed_kdv_2025_q1": true,  "has_filed_kdv_2025_q2": true,  "has_filed_kdv_2025_q3": true,  "risk_note": "" },
+    { "id": "SUP-M010", "name": "Hatay İnşaat Malz. Koop.", "tax_number": "0011223344", "risk_level": "düşük", "is_active": true,  "has_filed_kdv_2025_q1": true,  "has_filed_kdv_2025_q2": true,  "has_filed_kdv_2025_q3": true,  "risk_note": "" },
+    { "id": "SUP-M011", "name": "Edirne Toptan Tic. Ltd.", "tax_number": "1122334455", "risk_level": "düşük", "is_active": true,  "has_filed_kdv_2025_q1": true,  "has_filed_kdv_2025_q2": true,  "has_filed_kdv_2025_q3": true,  "risk_note": "" },
+    { "id": "SUP-M012", "name": "Malatya Üretim San. A.Ş.", "tax_number": "2233445566", "risk_level": "düşük", "is_active": true,  "has_filed_kdv_2025_q1": true,  "has_filed_kdv_2025_q2": true,  "has_filed_kdv_2025_q3": true,  "risk_note": "" }
+  ]
+}

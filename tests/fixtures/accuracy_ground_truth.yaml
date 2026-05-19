@@ -1,0 +1,207 @@
+# Ground-truth — kural tabanlı beklenen çıktılar (Path B + mevzuat matrisi)
+# Skor bantları LLM birincil mod için geniş; deterministik modda benchmark daraltır.
+
+defaults:
+  preset_answers:
+    q_gumruk_001: "Hayır"
+    q_2no_001: "Hayır"
+  expected_categories:
+    - "Yüksek Risk"
+    - "Orta Risk"
+
+scenarios:
+  T01:
+    label: "Temiz ihracat (10 fatura)"
+    expected_score_min: 0
+    expected_score_max: 35
+    llm_score_min: 0
+    llm_score_max: 35
+    must_include_codes: [GCB_MISSING, YMM_REPORT_MISSING]
+    must_not_include: [DATA_INTEGRITY_FAILURE]
+    expected_mandatory_locks: [GCB_MISSING, YMM_REPORT_MISSING]
+    refund_answer: ihracat
+    deterministic_score_min: 25
+    deterministic_score_max: 35
+
+  T02:
+    label: "İç satış (belirsiz iade, yüksek tutar)"
+    expected_score_min: 0
+    expected_score_max: 70
+    llm_score_min: 0
+    llm_score_max: 70
+    expected_categories: [Orta Risk, Yüksek Risk]
+    must_include_codes: [YMM_REPORT_MISSING]
+    must_not_include: [GCB_MISSING, NO2_DECLARATION_MISSING]
+    expected_mandatory_locks: [YMM_REPORT_MISSING]
+    refund_answer: tevkifat
+
+  T03:
+    label: "Sadece bozuk tarihler"
+    expected_score_min: 0
+    expected_score_max: 50
+    llm_score_min: 0
+    llm_score_max: 50
+    expected_categories: [Yüksek Risk]
+    must_include_codes: [GCB_MISSING]
+    must_not_include: []
+    refund_answer: ihracat
+
+  T04:
+    label: "Sıfır tutarlı faturalar"
+    expected_score_min: 15
+    expected_score_max: 55
+    expected_categories: [Yüksek Risk]
+    must_include_codes: [GCB_MISSING]
+    refund_answer: ihracat
+
+  T05:
+    label: "Geçersiz VKN"
+    expected_score_min: 0
+    expected_score_max: 56
+    llm_score_min: 0
+    llm_score_max: 56
+    expected_categories: [Yüksek Risk]
+    must_include_codes: [GCB_MISSING]
+    refund_answer: ihracat
+
+  T06:
+    label: "Tüm DQ sorunları"
+    expected_score_min: 0
+    expected_score_max: 50
+    expected_categories: [Yüksek Risk]
+    must_include_codes: [GCB_MISSING]
+    refund_answer: ihracat
+
+  T07:
+    label: "Negatif tutarlar"
+    expected_score_min: 0
+    expected_score_max: 15
+    expected_categories: [Yüksek Risk]
+    must_include_codes: [GCB_MISSING, REFUND_LOGIC_IMPOSSIBLE]
+    refund_answer: ihracat
+    deterministic_score_min: 0
+    deterministic_score_max: 15
+
+  T08:
+    label: "Alış faturaları (tevkifat bayrağı yok → belirsiz)"
+    expected_score_min: 25
+    expected_score_max: 70
+    llm_score_min: 25
+    llm_score_max: 70
+    expected_categories: [Orta Risk, Yüksek Risk]
+    must_include_codes: [YMM_REPORT_MISSING]
+    must_not_include: [NO2_DECLARATION_MISSING]
+    refund_answer: tevkifat
+
+  T09:
+    label: "Büyük tutar (200k)"
+    expected_score_min: 0
+    expected_score_max: 35
+    llm_score_min: 0
+    llm_score_max: 35
+    must_include_codes: [GCB_MISSING]
+    refund_answer: ihracat
+    deterministic_score_min: 25
+    deterministic_score_max: 35
+
+  T10:
+    label: "Küçük tutar (10k)"
+    expected_score_min: 15
+    expected_score_max: 65
+    llm_score_min: 0
+    llm_score_max: 65
+    must_include_codes: [GCB_MISSING]
+    refund_answer: ihracat
+
+  T11:
+    label: "Kaos: tüm sorunlar"
+    expected_score_min: 0
+    expected_score_max: 50
+    expected_categories: [Yüksek Risk]
+    must_include_codes: [GCB_MISSING]
+    refund_answer: ihracat
+
+  T12:
+    label: "Tek temiz ihracat"
+    expected_score_min: 15
+    expected_score_max: 65
+    llm_score_min: 0
+    llm_score_max: 65
+    must_include_codes: [GCB_MISSING]
+    refund_answer: ihracat
+
+  T13:
+    label: "Sadece iç satış"
+    expected_score_min: 0
+    expected_score_max: 70
+    llm_score_min: 0
+    llm_score_max: 70
+    expected_categories: [Orta Risk, Yüksek Risk]
+    must_include_codes: [YMM_REPORT_MISSING]
+    must_not_include: [NO2_DECLARATION_MISSING]
+    refund_answer: tevkifat
+
+  T14:
+    label: "Zayıf ihracat (KDV>0)"
+    expected_score_min: 0
+    expected_score_max: 70
+    llm_score_min: 0
+    llm_score_max: 70
+    expected_categories: [Orta Risk, Yüksek Risk]
+    must_include_codes: []
+    must_not_include: [GCB_MISSING]
+    expect_process_warning_contains: "KDV oranı"
+    refund_answer: ihracat
+    deterministic_score_min: 50
+    deterministic_score_max: 70
+
+  T15:
+    label: "Büyük tutar YMM eşiği"
+    expected_score_min: 0
+    expected_score_max: 35
+    llm_score_min: 0
+    llm_score_max: 35
+    expected_categories: [Yüksek Risk]
+    must_include_codes: [GCB_MISSING, YMM_REPORT_MISSING]
+    expected_mandatory_locks: [GCB_MISSING, YMM_REPORT_MISSING]
+    refund_answer: ihracat
+    deterministic_score_min: 25
+    deterministic_score_max: 35
+
+  T16:
+    label: "Alış (belirsiz iade, YMM eşiği)"
+    expected_score_min: 25
+    expected_score_max: 70
+    llm_score_min: 25
+    llm_score_max: 70
+    expected_categories: [Orta Risk, Yüksek Risk]
+    must_include_codes: [YMM_REPORT_MISSING]
+    must_not_include: [NO2_DECLARATION_MISSING]
+    refund_answer: tevkifat
+
+  P01:
+    label: "Excel + PDF GÇB mock"
+    expected_score_min: 25
+    expected_score_max: 100
+    expected_categories: [Düşük Risk, Orta Risk, Yüksek Risk]
+    must_include_codes: []
+    must_not_include: []
+    expect_pdf_inventory_type: gumruk_beyannamesi
+    refund_answer: ihracat
+    use_pdf: true
+
+modes:
+  llm:
+    env:
+      LLM_ANOMALY_ENABLED: "true"
+      MOCK_DOCUMENT_EXTRACTION: "true"
+      DOCUMENT_CLASSIFIER_ENABLED: "false"
+      STRICT_PROOF: "false"
+      REQUIRE_VERIFIED_PROOF: "false"
+  deterministic:
+    env:
+      LLM_ANOMALY_ENABLED: "false"
+      MOCK_DOCUMENT_EXTRACTION: "true"
+      DOCUMENT_CLASSIFIER_ENABLED: "false"
+      STRICT_PROOF: "false"
+      REQUIRE_VERIFIED_PROOF: "false"

@@ -1,0 +1,8 @@
+{
+  "documents": [
+    { "id": "DOC-001", "type": "gumruk_beyannamesi", "status": "eksik", "required": true, "note": "3 ihracat faturasına ait gümrük beyannamesi sisteme yüklenmemiş" },
+    { "id": "DOC-002", "type": "yuklenilen_kdv_listesi", "status": "mevcut", "required": true, "note": "" },
+    { "id": "DOC-003", "type": "ihracatci_listesi", "status": "mevcut", "required": true, "note": "" },
+    { "id": "DOC-004", "type": "ymm_raporu", "status": "eksik", "required": false, "note": "320.000 TL altı — YMM raporu zorunlu değil" }
+  ]
+}

@@ -1,0 +1,30 @@
+# Gizli ortam ve yerel sırlar
+.env
+.env.*
+!.env.example
+
+# Sanal ortam ve önbellek
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Runtime / audit logları (kullanıcı verisi, kanıt özeti)
+logs/
+*.log
+
+# Streamlit / upload geçici çıktılar
+.duzeltilmis_*/
+duzeltilmis_*
+.streamlit/secrets.toml
+
+# Test ve benchmark artefaktları
+test_excels_benchmark/
+tests/reports/
+tests/artifacts/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp

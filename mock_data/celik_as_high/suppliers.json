@@ -1,0 +1,12 @@
+{
+  "suppliers": [
+    { "id": "SUP-001", "name": "Ankara Çelik Sanayi Ltd.", "tax_number": "9876543210", "risk_level": "düşük", "is_active": true, "has_filed_kdv_2025_q1": true, "has_filed_kdv_2025_q2": true, "has_filed_kdv_2025_q3": true, "risk_note": "" },
+    { "id": "SUP-002", "name": "İzmir Dış Ticaret A.Ş.", "tax_number": "5566778899", "risk_level": "düşük", "is_active": true, "has_filed_kdv_2025_q1": true, "has_filed_kdv_2025_q2": true, "has_filed_kdv_2025_q3": true, "risk_note": "" },
+    { "id": "SUP-003", "name": "Bursa Metal İşleme Koop.", "tax_number": "1122334455", "risk_level": "yüksek", "is_active": false, "has_filed_kdv_2025_q1": true, "has_filed_kdv_2025_q2": false, "has_filed_kdv_2025_q3": false, "risk_note": "2025 Q2 ve Q3 KDV beyannamesi verilmemiş, firma pasif durumda" },
+    { "id": "SUP-004", "name": "Kocaeli Hammadde Temin Ltd.", "tax_number": "3344556677", "risk_level": "düşük", "is_active": true, "has_filed_kdv_2025_q1": true, "has_filed_kdv_2025_q2": true, "has_filed_kdv_2025_q3": true, "risk_note": "" },
+    { "id": "SUP-005", "name": "İstanbul Lojistik Hiz. A.Ş.", "tax_number": "7788990011", "risk_level": "düşük", "is_active": true, "has_filed_kdv_2025_q1": true, "has_filed_kdv_2025_q2": true, "has_filed_kdv_2025_q3": true, "risk_note": "" },
+    { "id": "SUP-006", "name": "Gebze Endüstri Malz. Ltd.", "tax_number": "2233445566", "risk_level": "düşük", "is_active": true, "has_filed_kdv_2025_q1": true, "has_filed_kdv_2025_q2": true, "has_filed_kdv_2025_q3": true, "risk_note": "" },
+    { "id": "SUP-007", "name": "Eskişehir Teknik Malz. Koop.", "tax_number": "6677889900", "risk_level": "düşük", "is_active": true, "has_filed_kdv_2025_q1": true, "has_filed_kdv_2025_q2": true, "has_filed_kdv_2025_q3": true, "risk_note": "" },
+    { "id": "SUP-008", "name": "Sakarya Ambalaj ve Nak. Ltd.", "tax_number": "4455667788", "risk_level": "düşük", "is_active": true, "has_filed_kdv_2025_q1": true, "has_filed_kdv_2025_q2": true, "has_filed_kdv_2025_q3": true, "risk_note": "" }
+  ]
+}

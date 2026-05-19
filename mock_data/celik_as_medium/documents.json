@@ -1,0 +1,7 @@
+{
+  "documents": [
+    { "id": "DOC-M001", "type": "tevkifatli_fatura", "status": "kismi", "present_count": 8, "required_count": 18, "required": true,  "note": "18 tevkifatlı faturadan sadece 8'i mevcut" },
+    { "id": "DOC-M002", "type": "2no_kdv_beyannamesi", "status": "eksik",  "required": true,  "note": "" },
+    { "id": "DOC-M003", "type": "indirilecek_kdv_listesi", "status": "mevcut", "required": true,  "note": "" }
+  ]
+}

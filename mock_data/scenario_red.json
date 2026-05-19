@@ -1,0 +1,200 @@
+{
+  "company_profile": {
+    "company_id": "scenario_red",
+    "company_name": "Kırmızı Ticaret ve Fatura Hizmetleri Ltd.",
+    "tax_number": "1000000002",
+    "tax_office": "Merkez",
+    "sector": "Ticaret",
+    "analysis_period": {
+      "start": "2025-01-01",
+      "end": "2025-09-30"
+    },
+    "refund_type_hint": "ihracat",
+    "has_ymm_contract": false,
+    "has_previous_refund": false,
+    "estimated_refund_amount": 90000
+  },
+  "invoices": [
+    {
+      "id": "RED-INV-001",
+      "type": "satis",
+      "date": "2025-02-05",
+      "amount": 85000,
+      "kdv_rate": 20,
+      "kdv_amount": 17000,
+      "supplier_id": "RED-SUP-001",
+      "is_export": true,
+      "has_customs_declaration": false,
+      "is_tevkifat": false,
+      "has_tevkifat_declaration": false,
+      "period": "2025-Q1",
+      "currency": "USD"
+    },
+    {
+      "id": "RED-INV-002",
+      "type": "satis",
+      "date": "2025-03-11",
+      "amount": 64000,
+      "kdv_rate": 20,
+      "kdv_amount": 12800,
+      "supplier_id": "RED-SUP-002",
+      "is_export": true,
+      "has_customs_declaration": false,
+      "is_tevkifat": false,
+      "has_tevkifat_declaration": false,
+      "period": "2025-Q1",
+      "currency": "USD"
+    },
+    {
+      "id": "RED-INV-003",
+      "type": "satis",
+      "date": "2025-04-20",
+      "amount": 73000,
+      "kdv_rate": 20,
+      "kdv_amount": 14600,
+      "supplier_id": "RED-SUP-003",
+      "is_export": true,
+      "has_customs_declaration": false,
+      "is_tevkifat": false,
+      "has_tevkifat_declaration": false,
+      "period": "2025-Q2",
+      "currency": "EUR"
+    },
+    {
+      "id": "RED-INV-004",
+      "type": "satis",
+      "date": "2025-06-09",
+      "amount": 91000,
+      "kdv_rate": 20,
+      "kdv_amount": 18200,
+      "supplier_id": "RED-SUP-004",
+      "is_export": true,
+      "has_customs_declaration": false,
+      "is_tevkifat": false,
+      "has_tevkifat_declaration": false,
+      "period": "2025-Q2",
+      "currency": "USD"
+    },
+    {
+      "id": "RED-INV-005",
+      "type": "satis",
+      "date": "2025-07-18",
+      "amount": 56000,
+      "kdv_rate": 20,
+      "kdv_amount": 11200,
+      "supplier_id": "RED-SUP-005",
+      "is_export": true,
+      "has_customs_declaration": false,
+      "is_tevkifat": false,
+      "has_tevkifat_declaration": false,
+      "period": "2025-Q3",
+      "currency": "USD"
+    },
+    {
+      "id": "RED-INV-006",
+      "type": "satis",
+      "date": "2025-09-07",
+      "amount": 67000,
+      "kdv_rate": 20,
+      "kdv_amount": 13400,
+      "supplier_id": "RED-SUP-006",
+      "is_export": true,
+      "has_customs_declaration": false,
+      "is_tevkifat": false,
+      "has_tevkifat_declaration": false,
+      "period": "2025-Q3",
+      "currency": "USD"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "RED-SUP-001",
+      "name": "Phantom Invoice Group 1",
+      "tax_number": "3000000001",
+      "risk_level": "yüksek",
+      "is_active": false,
+      "has_filed_kdv_2025_q1": false,
+      "has_filed_kdv_2025_q2": false,
+      "has_filed_kdv_2025_q3": false,
+      "risk_note": "Sahte fatura şüphesi ve pasif mükellef kaydı"
+    },
+    {
+      "id": "RED-SUP-002",
+      "name": "Phantom Invoice Group 2",
+      "tax_number": "3000000002",
+      "risk_level": "yüksek",
+      "is_active": false,
+      "has_filed_kdv_2025_q1": false,
+      "has_filed_kdv_2025_q2": false,
+      "has_filed_kdv_2025_q3": false,
+      "risk_note": "Sahte fatura şüphesi ve pasif mükellef kaydı"
+    },
+    {
+      "id": "RED-SUP-003",
+      "name": "Phantom Invoice Group 3",
+      "tax_number": "3000000003",
+      "risk_level": "yüksek",
+      "is_active": false,
+      "has_filed_kdv_2025_q1": false,
+      "has_filed_kdv_2025_q2": false,
+      "has_filed_kdv_2025_q3": false,
+      "risk_note": "Sahte fatura şüphesi ve pasif mükellef kaydı"
+    },
+    {
+      "id": "RED-SUP-004",
+      "name": "Phantom Invoice Group 4",
+      "tax_number": "3000000004",
+      "risk_level": "yüksek",
+      "is_active": false,
+      "has_filed_kdv_2025_q1": false,
+      "has_filed_kdv_2025_q2": false,
+      "has_filed_kdv_2025_q3": false,
+      "risk_note": "Sahte fatura şüphesi ve pasif mükellef kaydı"
+    },
+    {
+      "id": "RED-SUP-005",
+      "name": "Phantom Invoice Group 5",
+      "tax_number": "3000000005",
+      "risk_level": "yüksek",
+      "is_active": false,
+      "has_filed_kdv_2025_q1": false,
+      "has_filed_kdv_2025_q2": false,
+      "has_filed_kdv_2025_q3": false,
+      "risk_note": "Sahte fatura şüphesi ve pasif mükellef kaydı"
+    },
+    {
+      "id": "RED-SUP-006",
+      "name": "Phantom Invoice Group 6",
+      "tax_number": "3000000006",
+      "risk_level": "yüksek",
+      "is_active": false,
+      "has_filed_kdv_2025_q1": false,
+      "has_filed_kdv_2025_q2": false,
+      "has_filed_kdv_2025_q3": false,
+      "risk_note": "Sahte fatura şüphesi ve pasif mükellef kaydı"
+    }
+  ],
+  "documents": [
+    {
+      "id": "RED-DOC-001",
+      "type": "gumruk_beyannamesi",
+      "status": "eksik",
+      "required": true,
+      "note": "Zorunlu gümrük beyannamesi bulunmuyor"
+    },
+    {
+      "id": "RED-DOC-002",
+      "type": "2no_kdv_beyannamesi",
+      "status": "eksik",
+      "required": true,
+      "note": "2 No'lu KDV beyannamesi bulunmuyor"
+    },
+    {
+      "id": "RED-DOC-003",
+      "type": "yuklenilen_kdv_listesi",
+      "status": "eksik",
+      "required": true,
+      "note": "Yüklenilen KDV listesi bulunmuyor"
+    }
+  ]
+}

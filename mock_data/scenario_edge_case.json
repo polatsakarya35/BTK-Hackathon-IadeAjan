@@ -1,0 +1,123 @@
+{
+  "company_profile": {
+    "company_id": "scenario_edge_case",
+    "company_name": "Karma Portföy Dış Ticaret A.Ş.",
+    "tax_number": "1000000003",
+    "tax_office": "Maslak",
+    "sector": "Karma İhracat/Tevkifat",
+    "analysis_period": {
+      "start": "2025-01-01",
+      "end": "2025-09-30"
+    },
+    "refund_type_hint": "belirsiz",
+    "has_ymm_contract": false,
+    "has_previous_refund": true,
+    "estimated_refund_amount": 160000
+  },
+  "invoices": [
+    {
+      "id": "EDGE-INV-001",
+      "type": "satis",
+      "date": "2025-02-12",
+      "amount": 110000,
+      "kdv_rate": 20,
+      "kdv_amount": 22000,
+      "supplier_id": "EDGE-SUP-001",
+      "is_export": true,
+      "has_customs_declaration": true,
+      "is_tevkifat": false,
+      "has_tevkifat_declaration": true,
+      "period": "2025-Q1",
+      "currency": "USD"
+    },
+    {
+      "id": "EDGE-INV-002",
+      "type": "alis",
+      "date": "2025-04-16",
+      "amount": 76000,
+      "kdv_rate": 20,
+      "kdv_amount": 15200,
+      "supplier_id": "EDGE-SUP-002",
+      "is_export": false,
+      "has_customs_declaration": true,
+      "is_tevkifat": true,
+      "has_tevkifat_declaration": true,
+      "tevkifat_rate": 0.5,
+      "period": "2025-Q2",
+      "currency": "TRY"
+    },
+    {
+      "id": "EDGE-INV-003",
+      "type": "satis",
+      "date": "2025-08-02",
+      "amount": 69000,
+      "kdv_rate": 20,
+      "kdv_amount": 13800,
+      "supplier_id": "EDGE-SUP-003",
+      "is_export": true,
+      "has_customs_declaration": true,
+      "is_tevkifat": false,
+      "has_tevkifat_declaration": true,
+      "period": "2025-Q3",
+      "currency": "EUR"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "EDGE-SUP-001",
+      "name": "Edge Global Export Ltd.",
+      "tax_number": "4000000001",
+      "risk_level": "düşük",
+      "is_active": true,
+      "has_filed_kdv_2025_q1": true,
+      "has_filed_kdv_2025_q2": true,
+      "has_filed_kdv_2025_q3": true,
+      "risk_note": ""
+    },
+    {
+      "id": "EDGE-SUP-002",
+      "name": "Edge Tevkifat Tedarik A.Ş.",
+      "tax_number": "4000000002",
+      "risk_level": "düşük",
+      "is_active": true,
+      "has_filed_kdv_2025_q1": true,
+      "has_filed_kdv_2025_q2": true,
+      "has_filed_kdv_2025_q3": true,
+      "risk_note": ""
+    },
+    {
+      "id": "EDGE-SUP-003",
+      "name": "Edge Eurasia Trade",
+      "tax_number": "4000000003",
+      "risk_level": "düşük",
+      "is_active": true,
+      "has_filed_kdv_2025_q1": true,
+      "has_filed_kdv_2025_q2": true,
+      "has_filed_kdv_2025_q3": true,
+      "risk_note": ""
+    }
+  ],
+  "documents": [
+    {
+      "id": "EDGE-DOC-001",
+      "type": "gumruk_beyannamesi",
+      "status": "mevcut",
+      "required": true,
+      "note": ""
+    },
+    {
+      "id": "EDGE-DOC-002",
+      "type": "2no_kdv_beyannamesi",
+      "status": "mevcut",
+      "required": true,
+      "note": ""
+    },
+    {
+      "id": "EDGE-DOC-003",
+      "type": "indirilecek_kdv_listesi",
+      "status": "mevcut",
+      "required": true,
+      "note": ""
+    }
+  ]
+}
