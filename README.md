@@ -21,51 +21,67 @@
 
 ---
 
-## Ekip ve görev dağılımı (BTK Hackathon 2026)
+## Ekip ve görev dağılımı (BTK Hackathon)
 
-Proje, **modül bazlı sorumluluk** ile geliştirilmiştir. Git geçmişindeki commitler **Polat Sakarya** adına kayıtlıdır; mimari katmanlar aşağıdaki gibidir.
+Proje üç ana rolde geliştirilmiştir. Aşağıdaki dosya yolları, repodaki **gerçek teslim alanlarıdır** (planlama notlarındaki bazı isimler — örn. `supervisor_graph.py`, `score_engine.py` — bu kod tabanında birleştirilmiş veya farklı adlandırılmıştır).
 
-### Takım
+### Polat Sakarya — Yapay zeka mimarı
 
-| Üye | Rol | İletişim |
-|-----|-----|----------|
-| **Polat Sakarya** | Proje lideri · tam yığın geliştirme (backend, AI entegrasyonu, UI, test, teslim) | psakarya17@gmail.com |
+Sistemin zekâsı, ajan döngüleri ve hatasız durum akışı.
 
-### Görev dağılımı (kim ne yaptı?)
+| Görev | Repodaki karşılık |
+|--------|-------------------|
+| **State yönetimi** | [`app/core/state.py`](app/core/state.py) — `IadeAjanState` (LangGraph paylaşımlı sözlük) |
+| **Ajanların kodlanması** | [`app/agents/collector_agent.py`](app/agents/collector_agent.py), [`analyzer_agent.py`](app/agents/analyzer_agent.py), [`clarification_agent.py`](app/agents/clarification_agent.py), [`decision_agent.py`](app/agents/decision_agent.py) |
+| **Gemini prompt mühendisliği** | Analyzer LLM anomali, clarification mesajları, [`document_classifier.py`](app/services/document_classifier.py), [`ai_converter.py`](app/services/ai_converter.py) |
+| **LangGraph orkestrasyonu** | [`app/graph/workflow.py`](app/graph/workflow.py) — düğümler, kenarlar, clarification sonrası yeniden tarama (HITL), makro kilitte erken çıkış |
+| **Skor iyileştirme planı** | [`app/services/remediation_plan.py`](app/services/remediation_plan.py) + Decision çıktısı |
 
-| Alan | Sorumluluk | Başlıca dosyalar / çıktılar |
-|------|------------|-----------------------------|
-| **1. Mimari & LangGraph** | Dört ajanın tasarımı, state makinesi, koşullu yönlendirme (clarification döngüsü) | `app/graph/workflow.py`, `app/core/state.py`, `app/agents/*` |
-| **2. Veri girişi & Excel** | Yükleme, 50K satır, satır/sütun preflight, kanonik dönüşüm (heuristic + Gemini) | `upload_loader.py`, `upload_preflight.py`, `ai_converter.py` |
-| **3. Denetim motoru** | Python mevzuat kuralları, ceza matrisi, makro bütünlük, LLM anomali (bounded) | `analyzer_agent.py`, `penalty_codes.py` |
-| **4. Zero Trust kanıt** | GÇB/PDF doğrulama, proof ledger, envanter güveni, clarification soruları | `proof_ledger.py`, `document_verification.py`, `clarification_agent.py` |
-| **5. Skor & rapor** | 0–100 skor, finansman kilidi, iyileştirme planı (`remediation_plan`) | `decision_agent.py`, `remediation_plan.py` |
-| **6. Streamlit UI** | Landing, demo giriş, analiz merkezi, clarification/done fazları, pitch ekranları | `main.py` |
-| **7. Test & kalite** | E2E doğrulama, UI yolculuğu, güvenlik saldırı senaryoları, büyük Excel + skor testleri | `tests/*`, `pytest.ini` |
-| **8. Dokümantasyon & teslim** | Teknik rehberler, README, `.env.example`, GitHub, public güvenlik kontrolleri | `docs/`, `scripts/verify_public_ready.sh` |
+### Nazif — Veri tesisatçısı ve kuralcı
+
+Ajanları besleyen veri, mevzuat matrisi ve deterministik skor kuralları.
+
+| Görev | Repodaki karşılık |
+|--------|-------------------|
+| **Mock data üretimi** | [`mock_data/celik_as_high/`](mock_data/celik_as_high/), [`mock_data/celik_as_medium/`](mock_data/celik_as_medium/), [`mock_data/scenario_registry.json`](mock_data/scenario_registry.json), [`test_excels/`](test_excels/) |
+| **Bilgi bankası / mevzuat** | [`app/schemas/penalty_codes.py`](app/schemas/penalty_codes.py) (`PENALTY_MATRIX`), [`docs/`](docs/) (anomali haritası, uyumluluk, algoritma v3.2) |
+| **Skor motoru (Python)** | Ceza hesabı: `penalty_codes.compute_code_penalty` + [`decision_agent.py`](app/agents/decision_agent.py); Analyzer kural katmanları (`_apply_export_rules`, `_apply_ymm_rules`, vb.) |
+| **Yükleme ve veri boru hattı** | [`upload_loader.py`](app/services/upload_loader.py), [`upload_preflight.py`](app/services/upload_preflight.py), [`scenario_loader.py`](app/services/scenario_loader.py) |
+| **Doğrulama entegrasyonları** | GİB stub/mock: [`gib_api_client.py`](app/services/integrations/gib_api_client.py), [`verification/`](app/services/verification/) |
+| **Test ve regresyon** | [`tests/`](tests/) — E2E, Excel pipeline, kanıt defteri, güvenlik senaryoları |
+
+*Not: Ayrı bir FastAPI katmanı bu teslimde yoktur; analiz akışı Streamlit + LangGraph üzerinden çalışır. İleride API açılacaksa uç noktalar bu backend’e sarılabilir.*
+
+### Suat — Şovmen ve arayüz
+
+Jürinin gördüğü deneyim: sunum, canlı akış hissi ve sonuç ekranı.
+
+| Görev | Repodaki karşılık |
+|--------|-------------------|
+| **Streamlit UI** | [`main.py`](main.py) — landing, login/signup, analiz merkezi (`idle` / `clarification` / `done`) |
+| **Canlı log bağlantısı** | Sidebar pipeline, `agent_logs` akışı, graph `stream` ile aşama güncellemeleri |
+| **Aksiyon kartları** | Nihai rapor: finansman paneli, skor dökümü, [`_render_remediation_plan`](main.py) («+X puan», yapılacaklar tablosu) |
+| **Marka ve pitch** | Landing navbar, hero, finansman slaytı, «Neden İadeAjan?» bölümleri |
+| **Demo senaryosu** | Jüri akışı: README demo hesap + sunum provası (7 dk pitch metni slaytlarla birlikte hazırlanır) |
 
 ```mermaid
 flowchart LR
-  subgraph veri [Veri katmanı]
-    U[upload_loader + preflight]
-    C[ai_converter]
+  subgraph nazif [Nazif veri ve kurallar]
+    MD[mock_data penalty_codes]
+    UP[upload preflight]
   end
-  subgraph ajan [LangGraph]
-    Col[Collector]
-    Ana[Analyzer]
-    Cla[Clarification]
-    Dec[Decision]
+  subgraph polat [Polat ajanlar ve graph]
+    LG[LangGraph workflow]
+    AG[4 agent + Gemini]
   end
-  subgraph ui [Arayüz]
-    M[main.py Streamlit]
+  subgraph suat [Suat Streamlit]
+    UI[main.py UI]
   end
-  U --> Col
-  C --> Col
-  Col --> Ana --> Cla --> Dec
-  M --> ajan
+  MD --> LG
+  UP --> LG
+  LG --> UI
+  AG --> LG
 ```
-
-> Takımda birden fazla geliştirici varsa bu tabloya isim sütunu ekleyerek güncelleyebilirsiniz; repodaki mevcut yapı tek committer ile uyumludur.
 
 ---
 
