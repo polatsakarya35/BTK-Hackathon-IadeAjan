@@ -103,7 +103,20 @@ Repoyu klonlayan kişinin (BTK jürisi, hakem, teknik inceleyici) kendi bilgisay
 | 5 | `cp .env.example .env` — **kendi** `.env` dosyanızı oluşturun | Evet |
 | 6 | `.env` içine **kendi** `GOOGLE_API_KEY` değerinizi yazın **veya** aşağıdaki demo modunu kullanın | En az biri |
 | 7 | `streamlit run main.py` → tarayıcıda **http://localhost:8501** | Evet |
-| 8 | Landing → **Analiz Merkezine Git** → giriş ekranı (demo; gerçek kullanıcı kaydı yok) | Uygulama akışı |
+| 8 | Landing → **Analiz Merkezine Git** → aşağıdaki **demo hesap** ile giriş | Uygulama akışı |
+
+### Demo giriş hesabı (hocalar / jüri)
+
+Uygulama **mock oturum** kullanır; sunucu tarafında kullanıcı veritabanı yoktur. Değerlendirme için şu bilgileri kullanın:
+
+| Alan | Değer |
+|------|--------|
+| **E-posta** | `user123` |
+| **Şifre** | `user123` |
+
+**Giriş:** Ana sayfa → **Analiz Merkezine Git** → Kurumsal Giriş → yukarıdaki bilgileri yazın → **Giriş Yap**.
+
+Not: Teknik olarak «Giriş Yap» düğmesi her e-posta/şifre ile de açılır; jüri için standart hesap yukarıdaki gibidir.
 | 9 | Sidebar’dan demo senaryo **veya** örnek Excel yükleyip **Analizi Başlat** | Değerlendirme |
 | 10 | İhracat akışında GÇB sorusuna **PDF kanıt** yükleyip **Cevapları Gönder** | Tam senaryo için |
 | 11 | Nihai raporda skor, finansman paneli ve «Hedef Skora Ulaşmak İçin Yapılacaklar» bölümünü kontrol edin | Değerlendirme |
